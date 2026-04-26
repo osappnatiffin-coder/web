@@ -367,9 +367,20 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
 .veg-box { width: 18px; height: 18px; border: 1.5px solid var(--green); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
 .veg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* REVEAL - CSS animation, no JS observer needed */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: revealAnim 0.7s ease forwards;
+}
+.reveal:nth-child(2) { animation-delay: 0.1s; }
+.reveal:nth-child(3) { animation-delay: 0.15s; }
+.reveal:nth-child(4) { animation-delay: 0.2s; }
+.reveal:nth-child(5) { animation-delay: 0.25s; }
+.reveal:nth-child(6) { animation-delay: 0.3s; }
+@keyframes revealAnim {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -833,19 +844,8 @@ function waResize(el) {
   el.style.height = Math.min(el.scrollHeight, 100) + 'px';
 }
 
-// SCROLL REVEAL
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 70);
-      obs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+// Smooth anchor scrolling
 
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// SMOOTH ANCHORS
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const href = a.getAttribute('href');
