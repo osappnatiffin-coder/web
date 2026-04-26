@@ -54,7 +54,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; background: none; border: none; cursor: pointer; color: var(--brown); }
 
 /* HERO */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; }
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; position: relative; z-index: 0; isolation: isolate; }
 .hero-left {
   background: url('home food.png') center center / cover no-repeat;
   display: flex; flex-direction: column; justify-content: center;
@@ -63,8 +63,9 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .hero-left::before {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(14,30,8,0.88) 0%, rgba(30,58,15,0.82) 60%, rgba(14,30,8,0.75) 100%);
-  pointer-events: none;
+  pointer-events: none; z-index: 0;
 }
+.hero-left > * { position: relative; z-index: 1; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: rgba(212,117,10,0.14); border: 1px solid rgba(212,117,10,0.28);
@@ -149,7 +150,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
 /* MARQUEE */
-.marquee-strip { background: var(--saffron); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-strip { background: var(--saffron); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 1; }
 .marquee-track { display: inline-flex; gap: 3rem; animation: marquee 28s linear infinite; }
 .marquee-item { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); display: flex; align-items: center; gap: 1rem; }
 .marquee-item::after { content: '✦'; opacity: 0.55; }
@@ -166,7 +167,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .section-title em { font-style: italic; color: var(--saffron); }
 
 /* WHY US */
-.why-us { background: var(--white); padding: 7rem 6rem; }
+.why-us { background: var(--white); padding: 7rem 6rem; position: relative; z-index: 1; }
 .why-us-inner { max-width: 1200px; margin: 0 auto; }
 .why-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
 .why-header-text p { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.8; margin-top: 1.4rem; max-width: 420px; }
@@ -193,7 +194,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .pillar p { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
 
 /* SERVICES */
-.services { background: var(--green-deep); padding: 7rem 6rem; }
+.services { background: var(--green-deep); padding: 7rem 6rem; position: relative; z-index: 1; }
 .services-inner { max-width: 1200px; margin: 0 auto; }
 .services .section-label { color: var(--saffron-glow); }
 .services .section-label::before { background: var(--saffron-glow); }
@@ -211,7 +212,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .service-tag { display: inline-flex; align-items: center; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron-glow); border: 1px solid rgba(212,117,10,0.3); padding: 0.28rem 0.7rem; border-radius: 2px; }
 
 /* ABOUT */
-.about { background: var(--cream); padding: 7rem 6rem; }
+.about { background: var(--cream); padding: 7rem 6rem; position: relative; z-index: 1; }
 .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center; }
 .about-visual { position: relative; }
 .about-img-main {
@@ -242,7 +243,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .about-value p { font-size: 0.76rem; color: var(--muted); margin: 0 !important; line-height: 1.5; }
 
 /* MENU */
-.menu-section { background: var(--cream-dark); padding: 6rem; }
+.menu-section { background: var(--cream-dark); padding: 6rem; position: relative; z-index: 1; }
 .menu-section-inner { max-width: 1200px; margin: 0 auto; }
 .menu-section .section-label { justify-content: center; }
 .menu-section .section-label::before { display: none; }
@@ -272,7 +273,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .btn-insta:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(220,39,67,0.35); }
 
 /* REVIEWS */
-.reviews { background: var(--white); padding: 7rem 6rem; }
+.reviews { background: var(--white); padding: 7rem 6rem; position: relative; z-index: 1; }
 .reviews-inner { max-width: 1200px; margin: 0 auto; }
 .reviews-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
 .rating-badge { display: flex; align-items: center; gap: 1rem; background: var(--cream); padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; border: 1.5px solid transparent; transition: all 0.25s; }
@@ -291,7 +292,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .review-stars { color: var(--saffron); font-size: 0.7rem; }
 
 /* LOCATION */
-.location { background: var(--cream); padding: 7rem 6rem; }
+.location { background: var(--cream); padding: 7rem 6rem; position: relative; z-index: 1; }
 .location-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
 .location-map { background: var(--cream-dark); border-radius: 4px 4px 0 0; overflow: hidden; aspect-ratio: 4/3; border: 1px solid var(--parchment); border-bottom: none; }
 .location-map iframe { width: 100%; height: 100%; border: none; }
@@ -344,7 +345,7 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .footer-insta-link:hover { color: var(--saffron-glow); border-color: rgba(212,117,10,0.4); }
 
 /* FOOTER */
-footer { background: var(--charcoal); padding: 4rem 6rem 2rem; }
+footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relative; z-index: 1; }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,253,248,0.07); }
 .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
