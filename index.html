@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Appna Tiffin — Pure Vegetarian Home Cooking | Calgary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+/* iOS tap fix - removes 300ms delay on all clickable elements */
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+/* Prevent body scroll when mobile menu is open */
+body.nav-open { overflow: hidden; }
 
 /* NAV */
 nav {
@@ -818,7 +822,9 @@ window.addEventListener('scroll', () => {
 
 // MOBILE NAV
 function toggleNav() {
-  document.getElementById('mobileNav').classList.toggle('open');
+  const menu = document.getElementById('mobileNav');
+  const isOpen = menu.classList.toggle('open');
+  document.body.classList.toggle('nav-open', isOpen);
 }
 
 // WHATSAPP WIDGET
