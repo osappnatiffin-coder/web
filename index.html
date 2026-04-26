@@ -384,20 +384,9 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
 .veg-box { width: 18px; height: 18px; border: 1.5px solid var(--green); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
 .veg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
 
-/* REVEAL - CSS animation, no JS observer needed */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: revealAnim 0.7s ease forwards;
-}
-.reveal:nth-child(2) { animation-delay: 0.1s; }
-.reveal:nth-child(3) { animation-delay: 0.15s; }
-.reveal:nth-child(4) { animation-delay: 0.2s; }
-.reveal:nth-child(5) { animation-delay: 0.25s; }
-.reveal:nth-child(6) { animation-delay: 0.3s; }
-@keyframes revealAnim {
-  to { opacity: 1; transform: translateY(0); }
-}
+/* REVEAL - simple fade, no interaction blocking */
+.reveal { animation: revealAnim 0.6s ease both; }
+@keyframes revealAnim { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -516,12 +505,12 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <blockquote class="why-pull-quote">"We grind our own masalas every week. You taste the difference in the very first bite."</blockquote>
     </div>
     <div class="pillars">
-      <div class="pillar reveal"><span class="pillar-number">01</span><span class="pillar-icon">🌿</span><h3>100% Pure Vegetarian</h3><p>Our kitchen is completely vegetarian — no meat, no cross-contamination, ever. A sacred commitment to those who need to know exactly what's in their food.</p></div>
-      <div class="pillar reveal"><span class="pillar-number">02</span><span class="pillar-icon">🌅</span><h3>Cooked Fresh Every Day</h3><p>Nothing is frozen. Nothing is reheated from yesterday. Every roti, every sabzi, every dal is prepared the morning of — the way it was always meant to be.</p></div>
-      <div class="pillar reveal"><span class="pillar-number">03</span><span class="pillar-icon">🌶️</span><h3>Masalas Ground In-House</h3><p>We grind our own spice blends fresh every week right here in our kitchen. No store-bought packets. That depth of flavour you can't quite place? That's why.</p></div>
-      <div class="pillar reveal"><span class="pillar-number">04</span><span class="pillar-icon">🚚</span><h3>Monthly Tiffin Delivery</h3><p>Subscribe to a monthly plan and get fresh home-cooked meals delivered to your door. No cooking stress, no meal planning — just good food, consistently, on time.</p></div>
-      <div class="pillar reveal"><span class="pillar-number">05</span><span class="pillar-icon">🚛</span><h3>Meals for Truck Drivers</h3><p>Long haul, big appetite. Our truck driver tiffin is generous, filling, and built for the road — because hardworking people deserve a proper home-cooked meal.</p></div>
-      <div class="pillar reveal"><span class="pillar-number">06</span><span class="pillar-icon">🎉</span><h3>Small Event Catering</h3><p>Birthdays, poojas, family gatherings — we bring authentic desi flavours to your celebration. Fresh, abundant, and completely stress-free for you and your guests.</p></div>
+      <div class="pillar"><span class="pillar-number">01</span><span class="pillar-icon">🌿</span><h3>100% Pure Vegetarian</h3><p>Our kitchen is completely vegetarian — no meat, no cross-contamination, ever. A sacred commitment to those who need to know exactly what's in their food.</p></div>
+      <div class="pillar"><span class="pillar-number">02</span><span class="pillar-icon">🌅</span><h3>Cooked Fresh Every Day</h3><p>Nothing is frozen. Nothing is reheated from yesterday. Every roti, every sabzi, every dal is prepared the morning of — the way it was always meant to be.</p></div>
+      <div class="pillar"><span class="pillar-number">03</span><span class="pillar-icon">🌶️</span><h3>Masalas Ground In-House</h3><p>We grind our own spice blends fresh every week right here in our kitchen. No store-bought packets. That depth of flavour you can't quite place? That's why.</p></div>
+      <div class="pillar"><span class="pillar-number">04</span><span class="pillar-icon">🚚</span><h3>Monthly Tiffin Delivery</h3><p>Subscribe to a monthly plan and get fresh home-cooked meals delivered to your door. No cooking stress, no meal planning — just good food, consistently, on time.</p></div>
+      <div class="pillar"><span class="pillar-number">05</span><span class="pillar-icon">🚛</span><h3>Meals for Truck Drivers</h3><p>Long haul, big appetite. Our truck driver tiffin is generous, filling, and built for the road — because hardworking people deserve a proper home-cooked meal.</p></div>
+      <div class="pillar"><span class="pillar-number">06</span><span class="pillar-icon">🎉</span><h3>Small Event Catering</h3><p>Birthdays, poojas, family gatherings — we bring authentic desi flavours to your celebration. Fresh, abundant, and completely stress-free for you and your guests.</p></div>
     </div>
   </div>
 </section>
@@ -535,10 +524,10 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <p class="services-subtitle">Whether you need a quick daily meal, a monthly subscription, hearty food for the road, or catering for a gathering — we have you covered.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal"><span class="service-card-icon">🍱</span><h3>Daily & Weekly Tiffin</h3><p>Walk in or order ahead. Small, medium, or large tiffin with fresh roti, dal, sabzi, and dahi. For busy individuals and families who refuse to compromise on a home-cooked meal.</p><span class="service-tag">✦ Available Daily</span></div>
-      <div class="service-card reveal"><span class="service-card-icon">📦</span><h3>Monthly Subscription</h3><p>Lock in your meals for the month and get consistent, fresh home cooking delivered to your door. Choose your tiffin size and let us handle the rest — no planning, no stress.</p><span class="service-tag">✦ Home Delivery</span></div>
-      <div class="service-card reveal"><span class="service-card-icon">🛣️</span><h3>Truck Driver Specials</h3><p>A hearty, filling meal with roti, dal, sabzi, salad, and something sweet — built for long days and big appetites. Because good food shouldn't stop at the highway.</p><span class="service-tag">✦ Generous Portions</span></div>
-      <div class="service-card reveal"><span class="service-card-icon">🪔</span><h3>Event & Party Catering</h3><p>From intimate poojas to birthday parties and family gatherings — we bring the full desi experience to your event. Authentic flavours, generous portions, zero hassle for you.</p><span class="service-tag">✦ Custom Orders Welcome</span></div>
+      <div class="service-card"><span class="service-card-icon">🍱</span><h3>Daily & Weekly Tiffin</h3><p>Walk in or order ahead. Small, medium, or large tiffin with fresh roti, dal, sabzi, and dahi. For busy individuals and families who refuse to compromise on a home-cooked meal.</p><span class="service-tag">✦ Available Daily</span></div>
+      <div class="service-card"><span class="service-card-icon">📦</span><h3>Monthly Subscription</h3><p>Lock in your meals for the month and get consistent, fresh home cooking delivered to your door. Choose your tiffin size and let us handle the rest — no planning, no stress.</p><span class="service-tag">✦ Home Delivery</span></div>
+      <div class="service-card"><span class="service-card-icon">🛣️</span><h3>Truck Driver Specials</h3><p>A hearty, filling meal with roti, dal, sabzi, salad, and something sweet — built for long days and big appetites. Because good food shouldn't stop at the highway.</p><span class="service-tag">✦ Generous Portions</span></div>
+      <div class="service-card"><span class="service-card-icon">🪔</span><h3>Event & Party Catering</h3><p>From intimate poojas to birthday parties and family gatherings — we bring the full desi experience to your event. Authentic flavours, generous portions, zero hassle for you.</p><span class="service-tag">✦ Custom Orders Welcome</span></div>
     </div>
   </div>
 </section>
@@ -551,7 +540,7 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h2 class="section-title">Fresh, wholesome &amp; <em>made with love.</em></h2>
       <p class="menu-intro">Pure vegetarian. Open 7 days a week. Everything made fresh daily in our kitchen.</p>
     </div>
-    <div class="menu-tabs reveal">
+    <div class="menu-tabs">
       <button class="menu-tab active" onclick="showMenuTab('tiffin',this)">🍱 Tiffin Plans</button>
       <button class="menu-tab" onclick="showMenuTab('thali',this)">🍽️ Thalis</button>
       <button class="menu-tab" onclick="showMenuTab('roti',this)">🫓 Rotis &amp; Paranthas</button>
@@ -566,17 +555,17 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Tiffin Plans</h3>
       <p class="menu-category-desc">Daily, weekly, and monthly tiffin subscriptions. Rice &amp; sweet dish included once a week on monthly plans. Served Sunday–Friday.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Small (8oz)</h4><p>6 Roti, One Dal, One Sabzi. Consistent home flavour every day.</p><span class="menu-price">$240 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Medium (12oz)</h4><p>6–8 Roti, One Dal, One Sabzi. A satisfying mid-size tiffin for a full day of energy.</p><span class="menu-price">$260 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Large (16oz)</h4><p>8–10 Roti, One Dal, One Sabzi. Generous portions, no compromises.</p><span class="menu-price">$300 – $320 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Small (8oz)</h4><p>4 Roti, One Dal, One Sabzi. Fresh home food every day of the week.</p><span class="menu-price">$70 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Medium (12oz)</h4><p>6 Roti, One Dal, One Sabzi. Great for working professionals.</p><span class="menu-price">$80 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Large (16oz)</h4><p>8 Roti, One Dal, One Sabzi. Generous and filling for bigger appetites.</p><span class="menu-price">$90 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Small</h4><p>4 Roti, One Sabzi, One Dal and Dahi. Walk in or call ahead.</p><span class="menu-price">$12.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Medium</h4><p>6 Roti, One Sabzi, One Dal and Dahi. The most popular size.</p><span class="menu-price">$17.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Large</h4><p>8 Roti, One Sabzi, One Dal and Dahi. For a big appetite and an even bigger day.</p><span class="menu-price">$23.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Full</h4><p>20 Roti, 24oz Dal, One Sabzi, Salad and Sweet. Built for the road.</p><span class="menu-price">$40.00</span><br><span class="menu-card-tag">Truck Special</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Half</h4><p>10 Roti, 16oz Dal, One Sabzi, Salad and Sweet. A real home-cooked highway meal.</p><span class="menu-price">$25.00</span><br><span class="menu-card-tag">Truck Special</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📅</span><h4>Monthly — Small (8oz)</h4><p>6 Roti, One Dal, One Sabzi. Consistent home flavour every day.</p><span class="menu-price">$240 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📅</span><h4>Monthly — Medium (12oz)</h4><p>6–8 Roti, One Dal, One Sabzi. A satisfying mid-size tiffin for a full day of energy.</p><span class="menu-price">$260 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📅</span><h4>Monthly — Large (16oz)</h4><p>8–10 Roti, One Dal, One Sabzi. Generous portions, no compromises.</p><span class="menu-price">$300 – $320 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📆</span><h4>Weekly — Small (8oz)</h4><p>4 Roti, One Dal, One Sabzi. Fresh home food every day of the week.</p><span class="menu-price">$70 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📆</span><h4>Weekly — Medium (12oz)</h4><p>6 Roti, One Dal, One Sabzi. Great for working professionals.</p><span class="menu-price">$80 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">📆</span><h4>Weekly — Large (16oz)</h4><p>8 Roti, One Dal, One Sabzi. Generous and filling for bigger appetites.</p><span class="menu-price">$90 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🗓️</span><h4>Daily — Small</h4><p>4 Roti, One Sabzi, One Dal and Dahi. Walk in or call ahead.</p><span class="menu-price">$12.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🗓️</span><h4>Daily — Medium</h4><p>6 Roti, One Sabzi, One Dal and Dahi. The most popular size.</p><span class="menu-price">$17.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🗓️</span><h4>Daily — Large</h4><p>8 Roti, One Sabzi, One Dal and Dahi. For a big appetite and an even bigger day.</p><span class="menu-price">$23.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Full</h4><p>20 Roti, 24oz Dal, One Sabzi, Salad and Sweet. Built for the road.</p><span class="menu-price">$40.00</span><br><span class="menu-card-tag">Truck Special</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Half</h4><p>10 Roti, 16oz Dal, One Sabzi, Salad and Sweet. A real home-cooked highway meal.</p><span class="menu-price">$25.00</span><br><span class="menu-card-tag">Truck Special</span></div>
       </div>
       <div class="menu-note"><p><strong>All prices include GST.</strong> Call us at <strong>+1 (825) 454-1693</strong> to book your tiffin plan.</p></div>
     </div>
@@ -586,8 +575,8 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Thalis</h3>
       <p class="menu-category-desc">Complete, balanced thali plates — the full desi experience in one plate.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">🍛</span><h4>Punjabi Thali</h4><p>2 Roti or Rice, One Dal, One Sabzi, Salad, Dahi and Sweet Dish. A complete Punjabi meal on one plate.</p><span class="menu-card-tag">Signature</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Desi Saag Thali</h4><p>2 Makki Roti, Saag, Sabzi, Salad, Dahi and Sweet Dish. Classic Punjabi winter comfort — Saag &amp; Makki di Roti done right.</p><span class="menu-card-tag">Seasonal Favourite</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍛</span><h4>Punjabi Thali</h4><p>2 Roti or Rice, One Dal, One Sabzi, Salad, Dahi and Sweet Dish. A complete Punjabi meal on one plate.</p><span class="menu-card-tag">Signature</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌿</span><h4>Desi Saag Thali</h4><p>2 Makki Roti, Saag, Sabzi, Salad, Dahi and Sweet Dish. Classic Punjabi winter comfort — Saag &amp; Makki di Roti done right.</p><span class="menu-card-tag">Seasonal Favourite</span></div>
       </div>
       <div class="menu-note"><p><strong>Ask us what's fresh today</strong> — our thali sabzis and dals rotate daily for maximum variety.</p></div>
     </div>
@@ -597,17 +586,17 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Rotis &amp; Paranthas</h3>
       <p class="menu-category-desc">Hand-rolled fresh every day. No shortcuts, no frozen dough. Just the real thing.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Tawa Roti</h4><p>Classic whole wheat roti, soft and fresh off the tawa. The foundation of every great tiffin.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌽</span><h4>Makki di Roti</h4><p>Traditional cornmeal flatbread — pairs perfectly with Saag. A Punjabi classic.</p><span class="menu-card-tag">Seasonal</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Plain Parantha</h4><p>Flaky, layered whole wheat parantha made fresh. Simple, buttery, and satisfying.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥔</span><h4>Aloo Parantha</h4><p>Stuffed with spiced mashed potato — a breakfast favourite, available all day.</p><span class="menu-card-tag">Popular</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥦</span><h4>Gobhi Parantha</h4><p>Grated cauliflower mixed with spices, stuffed fresh into every parantha.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🧅</span><h4>Onion Parantha</h4><p>Finely chopped onion with spices, rolled into a fragrant parantha. Light and flavourful.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌱</span><h4>Mooli Parantha</h4><p>Grated radish with a blend of spices — a winter staple that's deeply satisfying.</p><span class="menu-card-tag">Seasonal</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Parantha</h4><p>Crumbled cottage cheese spiced and stuffed fresh. Rich, filling, and full of flavour.</p><span class="menu-card-tag">Premium</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌀</span><h4>Mix Parantha</h4><p>A blend of seasonal vegetables and spices — a different combination, every time.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥞</span><h4>Besan Chilla</h4><p>Savoury chickpea flour crepe, spiced and served fresh. Protein-packed and delicious.</p><span class="menu-card-tag">Daily</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Lacha Parantha</h4><p>Multi-layered, flaky parantha with a beautiful texture — a restaurant-style classic made at home.</p><span class="menu-card-tag">Special</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🫓</span><h4>Tawa Roti</h4><p>Classic whole wheat roti, soft and fresh off the tawa. The foundation of every great tiffin.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌽</span><h4>Makki di Roti</h4><p>Traditional cornmeal flatbread — pairs perfectly with Saag. A Punjabi classic.</p><span class="menu-card-tag">Seasonal</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🫓</span><h4>Plain Parantha</h4><p>Flaky, layered whole wheat parantha made fresh. Simple, buttery, and satisfying.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥔</span><h4>Aloo Parantha</h4><p>Stuffed with spiced mashed potato — a breakfast favourite, available all day.</p><span class="menu-card-tag">Popular</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥦</span><h4>Gobhi Parantha</h4><p>Grated cauliflower mixed with spices, stuffed fresh into every parantha.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧅</span><h4>Onion Parantha</h4><p>Finely chopped onion with spices, rolled into a fragrant parantha. Light and flavourful.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌱</span><h4>Mooli Parantha</h4><p>Grated radish with a blend of spices — a winter staple that's deeply satisfying.</p><span class="menu-card-tag">Seasonal</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧀</span><h4>Paneer Parantha</h4><p>Crumbled cottage cheese spiced and stuffed fresh. Rich, filling, and full of flavour.</p><span class="menu-card-tag">Premium</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌀</span><h4>Mix Parantha</h4><p>A blend of seasonal vegetables and spices — a different combination, every time.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥞</span><h4>Besan Chilla</h4><p>Savoury chickpea flour crepe, spiced and served fresh. Protein-packed and delicious.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🫓</span><h4>Lacha Parantha</h4><p>Multi-layered, flaky parantha with a beautiful texture — a restaurant-style classic made at home.</p><span class="menu-card-tag">Special</span></div>
       </div>
     </div>
 
@@ -616,9 +605,9 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Sabzi &amp; Dal</h3>
       <p class="menu-category-desc">Order curries and dals by the ounce — available in 8, 12, 16, and 24oz portions.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">🍲</span><h4>Daily Sabzi / Dal</h4><p>Our rotating daily vegetable curry or dal — made fresh every morning with hand-ground spices.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Saag Sabzi / Dal</h4><p>Spinach-based curry made the traditional way. Rich, earthy, and deeply satisfying.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Sabzi / Dal</h4><p>Fresh cottage cheese in a flavourful masala — a crowd favourite for a reason.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍲</span><h4>Daily Sabzi / Dal</h4><p>Our rotating daily vegetable curry or dal — made fresh every morning with hand-ground spices.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌿</span><h4>Saag Sabzi / Dal</h4><p>Spinach-based curry made the traditional way. Rich, earthy, and deeply satisfying.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧀</span><h4>Paneer Sabzi / Dal</h4><p>Fresh cottage cheese in a flavourful masala — a crowd favourite for a reason.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
       </div>
       <div class="menu-note"><p>Call us to check <strong>what's cooking today</strong> — the sabzi and dal rotate daily for fresh variety.</p></div>
     </div>
@@ -628,16 +617,16 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Snacks &amp; Chaat</h3>
       <p class="menu-category-desc">Classic Indian street food snacks — crispy, tangy, and made fresh in our kitchen.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">🧆</span><h4>Mix Pakoda</h4><p>Assorted vegetable fritters in a spiced gram flour batter. Perfect with chai.</p><span class="menu-card-tag">Snack</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Pakoda</h4><p>Cottage cheese cubes dipped in spiced batter and fried golden. A crowd favourite.</p><span class="menu-card-tag">Snack</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🍞</span><h4>Bread Pakoda</h4><p>Bread stuffed with spiced potato, dipped in batter and fried. Street food at its finest.</p><span class="menu-card-tag">Snack</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌯</span><h4>Bread Roll</h4><p>Crispy bread rolled with a savoury potato filling. Quick, satisfying, and delicious.</p><span class="menu-card-tag">Snack</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥗</span><h4>Papdi Chaat</h4><p>Crispy wafers topped with yogurt, chutneys, and chaat masala. A tangy flavour explosion.</p><span class="menu-card-tag">Chaat</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🫘</span><h4>Samosa Chana Chaat</h4><p>Flaky samosa with spiced chickpeas, chutneys, and yogurt. A complete street-food experience.</p><span class="menu-card-tag">Chaat</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥔</span><h4>Tikki Chana Chaat</h4><p>Golden potato patties with chickpeas, chutneys, and dahi. Classic and comforting.</p><span class="menu-card-tag">Chaat</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🫙</span><h4>Dahi Bhalla</h4><p>Lentil dumplings soaked in cold yogurt and finished with sweet and tangy chutneys.</p><span class="menu-card-tag">Chaat</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥐</span><h4>Kachori Chaat</h4><p>Flaky stuffed pastry topped with the works — chaat masala, chutneys, and sev.</p><span class="menu-card-tag">Chaat</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🔺</span><h4>Samosa</h4><p>Crispy pastry filled with spiced potato and peas. The ultimate Indian snack — served fresh.</p><span class="menu-card-tag">Classic</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧆</span><h4>Mix Pakoda</h4><p>Assorted vegetable fritters in a spiced gram flour batter. Perfect with chai.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧀</span><h4>Paneer Pakoda</h4><p>Cottage cheese cubes dipped in spiced batter and fried golden. A crowd favourite.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍞</span><h4>Bread Pakoda</h4><p>Bread stuffed with spiced potato, dipped in batter and fried. Street food at its finest.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌯</span><h4>Bread Roll</h4><p>Crispy bread rolled with a savoury potato filling. Quick, satisfying, and delicious.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥗</span><h4>Papdi Chaat</h4><p>Crispy wafers topped with yogurt, chutneys, and chaat masala. A tangy flavour explosion.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🫘</span><h4>Samosa Chana Chaat</h4><p>Flaky samosa with spiced chickpeas, chutneys, and yogurt. A complete street-food experience.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥔</span><h4>Tikki Chana Chaat</h4><p>Golden potato patties with chickpeas, chutneys, and dahi. Classic and comforting.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🫙</span><h4>Dahi Bhalla</h4><p>Lentil dumplings soaked in cold yogurt and finished with sweet and tangy chutneys.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥐</span><h4>Kachori Chaat</h4><p>Flaky stuffed pastry topped with the works — chaat masala, chutneys, and sev.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🔺</span><h4>Samosa</h4><p>Crispy pastry filled with spiced potato and peas. The ultimate Indian snack — served fresh.</p><span class="menu-card-tag">Classic</span></div>
       </div>
     </div>
 
@@ -646,15 +635,15 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Cold Drinks</h3>
       <p class="menu-category-desc">Refreshing homemade drinks and shakes — the perfect companion to your meal.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">🥛</span><h4>Sweet Lassi</h4><p>Thick, chilled yogurt drink sweetened to perfection. The classic desi cooler.</p><span class="menu-card-tag">Lassi</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🧂</span><h4>Salted Lassi</h4><p>Cool and refreshing salted yogurt drink with a hint of roasted cumin. Great after a meal.</p><span class="menu-card-tag">Lassi</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥭</span><h4>Mango Lassi</h4><p>Real mango blended into thick creamy yogurt. Tropical, sweet, and utterly refreshing.</p><span class="menu-card-tag">Popular</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Pudina (Mint) Lassi</h4><p>Minty fresh lassi — cooling and aromatic. Perfect for a warm Calgary afternoon.</p><span class="menu-card-tag">Lassi</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🍋</span><h4>Nimbu Pani</h4><p>Fresh lemon water with a touch of salt and sugar. Simple, clean, and perfectly refreshing.</p><span class="menu-card-tag">Refresher</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">☕</span><h4>Cold Coffee</h4><p>Chilled blended coffee — rich and creamy. A perfect pick-me-up any time of day.</p><span class="menu-card-tag">Shake</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🍫</span><h4>Chocolate Shake</h4><p>Rich, creamy chocolate milkshake. A crowd-pleaser for all ages.</p><span class="menu-card-tag">Shake</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🍓</span><h4>Strawberry Shake</h4><p>Thick strawberry milkshake made with fresh flavours. Sweet and satisfying.</p><span class="menu-card-tag">Shake</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🥭</span><h4>Mango Shake</h4><p>Thick, creamy mango milkshake — rich with the taste of real mangoes.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥛</span><h4>Sweet Lassi</h4><p>Thick, chilled yogurt drink sweetened to perfection. The classic desi cooler.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🧂</span><h4>Salted Lassi</h4><p>Cool and refreshing salted yogurt drink with a hint of roasted cumin. Great after a meal.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥭</span><h4>Mango Lassi</h4><p>Real mango blended into thick creamy yogurt. Tropical, sweet, and utterly refreshing.</p><span class="menu-card-tag">Popular</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌿</span><h4>Pudina (Mint) Lassi</h4><p>Minty fresh lassi — cooling and aromatic. Perfect for a warm Calgary afternoon.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍋</span><h4>Nimbu Pani</h4><p>Fresh lemon water with a touch of salt and sugar. Simple, clean, and perfectly refreshing.</p><span class="menu-card-tag">Refresher</span></div>
+        <div class="menu-card"><span class="menu-card-icon">☕</span><h4>Cold Coffee</h4><p>Chilled blended coffee — rich and creamy. A perfect pick-me-up any time of day.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍫</span><h4>Chocolate Shake</h4><p>Rich, creamy chocolate milkshake. A crowd-pleaser for all ages.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍓</span><h4>Strawberry Shake</h4><p>Thick strawberry milkshake made with fresh flavours. Sweet and satisfying.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🥭</span><h4>Mango Shake</h4><p>Thick, creamy mango milkshake — rich with the taste of real mangoes.</p><span class="menu-card-tag">Shake</span></div>
       </div>
     </div>
 
@@ -663,9 +652,9 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
       <h3 class="menu-category-title">Appna Swaad Chaa Da ☕</h3>
       <p class="menu-category-desc">Real chai — brewed the proper way. No tea bags, no shortcuts.</p>
       <div class="menu-grid">
-        <div class="menu-card reveal"><span class="menu-card-icon">☕</span><h4>Appni Special Chai</h4><p>Our signature house chai — hand-crafted with fresh ginger, cardamom, and whole spices. The real deal.</p><span class="menu-card-tag">House Special</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🍬</span><h4>Gur Chai</h4><p>Traditional chai sweetened with jaggery (gur) instead of sugar. Earthy, deep, and comforting.</p><span class="menu-card-tag">Traditional</span></div>
-        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Sugar Free Chai</h4><p>All the warmth and spice of our signature chai, made without any sugar. Light and aromatic.</p><span class="menu-card-tag">Healthy</span></div>
+        <div class="menu-card"><span class="menu-card-icon">☕</span><h4>Appni Special Chai</h4><p>Our signature house chai — hand-crafted with fresh ginger, cardamom, and whole spices. The real deal.</p><span class="menu-card-tag">House Special</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🍬</span><h4>Gur Chai</h4><p>Traditional chai sweetened with jaggery (gur) instead of sugar. Earthy, deep, and comforting.</p><span class="menu-card-tag">Traditional</span></div>
+        <div class="menu-card"><span class="menu-card-icon">🌿</span><h4>Sugar Free Chai</h4><p>All the warmth and spice of our signature chai, made without any sugar. Light and aromatic.</p><span class="menu-card-tag">Healthy</span></div>
       </div>
     </div>
 
