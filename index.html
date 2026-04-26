@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appna Tiffin — Pure Vegetarian Home Cooking | Calgary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #D4750A;
+  --saffron-light: #F0952A;
+  --saffron-glow: #FBBF60;
+  --cream: #FBF5EB;
+  --cream-dark: #F0E4CC;
+  --parchment: #E8D5B0;
+  --charcoal: #1A120A;
+  --brown: #3C2210;
+  --muted: #8B6B4A;
+  --green-deep: #1E3A0F;
+  --green: #2D5A16;
+  --white: #FFFDF8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 4rem;
+  background: rgba(251,245,235,0.94); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212,117,10,0.12);
+  transition: all 0.3s;
+}
+nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--brown); text-decoration: none; letter-spacing: -0.02em; }
+.nav-logo span { color: var(--saffron); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--saffron); }
+.nav-cta { background: var(--saffron) !important; color: var(--white) !important; padding: 0.5rem 1.3rem !important; border-radius: 2px; }
+.nav-cta:hover { background: var(--saffron-light) !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--brown); }
+
+/* MOBILE MENU */
+.mobile-menu { display: none; position: fixed; inset: 0; background: var(--cream); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 400; color: var(--brown); text-decoration: none; }
+.mobile-menu a:hover { color: var(--saffron); }
+.mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; background: none; border: none; cursor: pointer; color: var(--brown); }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; }
+.hero-left {
+  background: url('home food.png') center center / cover no-repeat;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 8rem 6rem; position: relative; overflow: hidden;
+}
+.hero-left::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(14,30,8,0.88) 0%, rgba(30,58,15,0.82) 60%, rgba(14,30,8,0.75) 100%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(212,117,10,0.14); border: 1px solid rgba(212,117,10,0.28);
+  color: var(--saffron-glow); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem; border-radius: 2px; margin-bottom: 2.5rem;
+  width: fit-content; animation: fadeUp 0.8s ease both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem); font-weight: 300;
+  line-height: 1.05; color: var(--white); margin-bottom: 1.8rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title em { font-style: italic; color: var(--saffron-glow); }
+.hero-subtitle {
+  font-size: 1rem; font-weight: 300; color: rgba(255,253,248,0.6);
+  line-height: 1.75; max-width: 560px; margin-bottom: 3rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.3s ease both; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--saffron); color: var(--white);
+  padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 500;
+  text-decoration: none; border-radius: 2px; border: none; cursor: pointer;
+  transition: all 0.25s;
+}
+.btn-primary:hover { background: var(--saffron-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,117,10,0.35); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: var(--white);
+  padding: 0.85rem 2rem; font-size: 0.9rem;
+  text-decoration: none; border-radius: 2px;
+  border: 1px solid rgba(255,253,248,0.22); transition: all 0.25s;
+}
+.btn-secondary:hover { border-color: rgba(255,253,248,0.55); }
+.hero-stats {
+  display: flex; gap: 2.5rem; margin-top: 4rem;
+  padding-top: 2.5rem; border-top: 1px solid rgba(255,253,248,0.1);
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--saffron-glow); line-height: 1; }
+.hero-stat-label { font-size: 0.72rem; color: rgba(255,253,248,0.45); letter-spacing: 0.06em; margin-top: 0.3rem; }
+
+.hero-right {
+  background: var(--cream-dark); position: relative;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(212,117,10,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,90,22,0.07) 0%, transparent 50%);
+}
+.hero-image-stack { position: relative; width: 380px; height: 460px; z-index: 1; }
+.hero-img-card { position: absolute; border-radius: 4px; overflow: hidden; box-shadow: 0 20px 60px rgba(60,34,16,0.18); }
+.hero-img-card:nth-child(1) {
+  width: 270px; height: 330px; top: 30px; left: 30px;
+  background: linear-gradient(145deg, #5C3317 0%, #A0521C 50%, #6B4A10 100%);
+  display: flex; align-items: center; justify-content: center; font-size: 5rem;
+  animation: float1 6s ease-in-out infinite;
+}
+.hero-img-card:nth-child(2) {
+  width: 190px; height: 210px; bottom: 20px; right: 10px;
+  background: linear-gradient(145deg, var(--green-deep) 0%, #2D5A16 100%);
+  display: flex; align-items: center; justify-content: center; font-size: 3.5rem;
+  animation: float2 7s ease-in-out infinite;
+}
+.hero-tag {
+  position: absolute; background: var(--white); border-radius: 4px;
+  padding: 0.65rem 1rem; box-shadow: 0 8px 30px rgba(60,34,16,0.1);
+  font-size: 0.78rem; font-weight: 500; color: var(--brown);
+  display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; z-index: 2;
+}
+.hero-tag.t1 { top: 8px; right: 10px; animation: float2 5s ease-in-out infinite; }
+.hero-tag.t2 { bottom: 80px; left: 0; animation: float1 6s 1s ease-in-out infinite; }
+.tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.tag-dot.o { background: var(--saffron); }
+
+@keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+/* MARQUEE */
+.marquee-strip { background: var(--saffron); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; gap: 3rem; animation: marquee 28s linear infinite; }
+.marquee-item { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); display: flex; align-items: center; gap: 1rem; }
+.marquee-item::after { content: '✦'; opacity: 0.55; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* SECTION BASE */
+.section-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--saffron); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before { content: ''; width: 26px; height: 1px; background: var(--saffron); }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 400; line-height: 1.1; color: var(--brown); }
+.section-title em { font-style: italic; color: var(--saffron); }
+
+/* WHY US */
+.why-us { background: var(--white); padding: 7rem 6rem; }
+.why-us-inner { max-width: 1200px; margin: 0 auto; }
+.why-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+.why-header-text p { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.8; margin-top: 1.4rem; max-width: 420px; }
+.why-pull-quote {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic;
+  color: var(--brown); text-align: right; line-height: 1.55;
+  border-right: 3px solid var(--saffron); padding-right: 1.5rem; max-width: 320px; margin-left: auto;
+}
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.pillar {
+  background: var(--cream); padding: 2.5rem 2rem;
+  position: relative; overflow: hidden; transition: all 0.3s; cursor: default;
+}
+.pillar::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--saffron); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+}
+.pillar:hover::before { transform: scaleX(1); }
+.pillar:hover { background: var(--cream-dark); transform: translateY(-4px); }
+.pillar-number { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--cream-dark); position: absolute; top: 0.8rem; right: 1rem; line-height: 1; transition: color 0.3s; }
+.pillar:hover .pillar-number { color: rgba(212,117,10,0.1); }
+.pillar-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+.pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--brown); margin-bottom: 0.65rem; line-height: 1.2; }
+.pillar p { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+/* SERVICES */
+.services { background: var(--green-deep); padding: 7rem 6rem; }
+.services-inner { max-width: 1200px; margin: 0 auto; }
+.services .section-label { color: var(--saffron-glow); }
+.services .section-label::before { background: var(--saffron-glow); }
+.services .section-title { color: var(--white); }
+.services-subtitle { font-size: 1rem; font-weight: 300; color: rgba(255,253,248,0.5); margin-top: 1rem; margin-bottom: 4rem; max-width: 480px; line-height: 1.75; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.service-card {
+  background: rgba(255,253,248,0.04); border: 1px solid rgba(255,253,248,0.06);
+  padding: 3rem 2.5rem; transition: all 0.3s;
+}
+.service-card:hover { background: rgba(255,253,248,0.07); border-color: rgba(212,117,10,0.28); }
+.service-card-icon { font-size: 2.4rem; margin-bottom: 1.5rem; display: block; }
+.service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--white); margin-bottom: 0.8rem; line-height: 1.2; }
+.service-card p { font-size: 0.88rem; font-weight: 300; color: rgba(255,253,248,0.5); line-height: 1.75; margin-bottom: 1.5rem; }
+.service-tag { display: inline-flex; align-items: center; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron-glow); border: 1px solid rgba(212,117,10,0.3); padding: 0.28rem 0.7rem; border-radius: 2px; }
+
+/* ABOUT */
+.about { background: var(--cream); padding: 7rem 6rem; }
+.about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center; }
+.about-visual { position: relative; }
+.about-img-main {
+  width: 100%; aspect-ratio: 4/5;
+  background: linear-gradient(160deg, var(--green-deep) 0%, #1a3d0a 100%);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-size: 6rem; position: relative; overflow: hidden;
+}
+.about-img-main::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,45,10,0.85) 0%, transparent 50%); }
+.about-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; z-index: 1; padding: 2rem; color: var(--white); }
+.about-img-overlay h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 400; font-style: italic; line-height: 1.3; }
+.about-img-overlay p { font-size: 0.78rem; opacity: 0.55; margin-top: 0.3rem; }
+.about-badge {
+  position: absolute; top: -18px; right: -18px;
+  width: 105px; height: 105px; background: var(--saffron); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--white); line-height: 1.5; padding: 1rem;
+  box-shadow: 0 10px 40px rgba(212,117,10,0.35); animation: spin-slow 20s linear infinite;
+}
+@keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+.about-content p { font-size: 0.97rem; font-weight: 300; color: var(--muted); line-height: 1.85; margin-top: 1.4rem; }
+.about-content p + p { margin-top: 1rem; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+.about-value { display: flex; align-items: flex-start; gap: 0.8rem; padding: 1rem; background: var(--white); border-radius: 4px; }
+.about-value-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
+.about-value h5 { font-size: 0.84rem; font-weight: 500; color: var(--brown); margin-bottom: 0.2rem; }
+.about-value p { font-size: 0.76rem; color: var(--muted); margin: 0 !important; line-height: 1.5; }
+
+/* MENU */
+.menu-section { background: var(--cream-dark); padding: 6rem; }
+.menu-section-inner { max-width: 1200px; margin: 0 auto; }
+.menu-section .section-label { justify-content: center; }
+.menu-section .section-label::before { display: none; }
+.menu-section .section-title { text-align: center; margin-bottom: 0.5rem; }
+.menu-intro { text-align: center; font-size: 0.97rem; color: var(--muted); font-weight: 300; margin-bottom: 3rem; }
+.menu-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 3rem; }
+.menu-tab { padding: 0.5rem 1.2rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid var(--parchment); border-radius: 2px; background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; }
+.menu-tab:hover { border-color: var(--saffron); color: var(--saffron); }
+.menu-tab.active { background: var(--saffron); border-color: var(--saffron); color: var(--white); }
+.menu-panel { display: none; animation: fadeUp 0.4s ease both; }
+.menu-panel.active { display: block; }
+.menu-category-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--brown); margin-bottom: 0.4rem; }
+.menu-category-desc { font-size: 0.87rem; color: var(--muted); margin-bottom: 2rem; font-weight: 300; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem; }
+.menu-card { background: var(--white); border-radius: 4px; padding: 1.5rem; border: 1px solid rgba(232,213,176,0.6); transition: all 0.25s; position: relative; }
+.menu-card:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(60,34,16,0.09); border-color: rgba(212,117,10,0.2); }
+.menu-card-icon { font-size: 1.6rem; margin-bottom: 0.7rem; display: block; }
+.menu-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--brown); margin-bottom: 0.4rem; line-height: 1.2; }
+.menu-card p { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+.menu-card-tag { display: inline-block; margin-top: 0.8rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron); border: 1px solid rgba(212,117,10,0.25); padding: 0.2rem 0.55rem; border-radius: 2px; }
+.menu-note { text-align: center; background: var(--white); border-radius: 4px; padding: 1.5rem 2rem; border: 1.5px solid rgba(212,117,10,0.15); margin-top: 1rem; }
+.menu-note p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+.menu-note strong { color: var(--brown); }
+.menu-cta-row { display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.menu-price { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--saffron); margin-top: 0.6rem; }
+.btn-insta { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 2px; border: none; transition: all 0.25s; }
+.btn-insta:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(220,39,67,0.35); }
+
+/* REVIEWS */
+.reviews { background: var(--white); padding: 7rem 6rem; }
+.reviews-inner { max-width: 1200px; margin: 0 auto; }
+.reviews-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
+.rating-badge { display: flex; align-items: center; gap: 1rem; background: var(--cream); padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; border: 1.5px solid transparent; transition: all 0.25s; }
+.rating-badge:hover { border-color: var(--saffron); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,117,10,0.15); }
+.rating-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: var(--brown); line-height: 1; }
+.rating-stars { color: var(--saffron); font-size: 1rem; letter-spacing: 2px; }
+.rating-count { font-size: 0.78rem; color: var(--muted); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.review-card { background: var(--cream); padding: 2rem; border-radius: 4px; transition: transform 0.3s; }
+.review-card:hover { transform: translateY(-4px); }
+.review-q { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--saffron); line-height: 0.5; margin-bottom: 1rem; display: block; }
+.review-text { font-size: 0.9rem; font-weight: 300; color: var(--brown); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+.review-author { display: flex; align-items: center; gap: 0.8rem; }
+.review-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 0.88rem; color: var(--white); font-weight: 500; flex-shrink: 0; }
+.review-name { font-size: 0.84rem; font-weight: 500; color: var(--brown); }
+.review-stars { color: var(--saffron); font-size: 0.7rem; }
+
+/* LOCATION */
+.location { background: var(--cream); padding: 7rem 6rem; }
+.location-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+.location-map { background: var(--cream-dark); border-radius: 4px 4px 0 0; overflow: hidden; aspect-ratio: 4/3; border: 1px solid var(--parchment); border-bottom: none; }
+.location-map iframe { width: 100%; height: 100%; border: none; }
+.btn-take-me-there { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.9rem 1.5rem; background: var(--saffron); color: var(--white); font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 0 0 4px 4px; border: 1px solid var(--saffron); transition: all 0.25s; }
+.btn-take-me-there:hover { background: var(--saffron-light); border-color: var(--saffron-light); letter-spacing: 0.02em; }
+.location-details { padding-top: 1rem; }
+.loc-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--cream-dark); }
+.loc-item:first-of-type { border-top: 1px solid var(--cream-dark); margin-top: 2rem; }
+.loc-icon { width: 36px; height: 36px; background: var(--cream-dark); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.loc-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron); margin-bottom: 0.3rem; }
+.loc-value { font-size: 0.93rem; color: var(--brown); line-height: 1.5; }
+.loc-value a { color: var(--brown); text-decoration: none; }
+.loc-value a:hover { color: var(--saffron); }
+
+/* WA WIDGET */
+.wa-widget { position: fixed; bottom: 2rem; right: 2rem; z-index: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+.wa-box {
+  background: var(--white); border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(60,34,16,0.16); width: 320px; overflow: hidden;
+  transform: scale(0.9) translateY(20px); opacity: 0; pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: bottom right;
+}
+.wa-box.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+.wa-head { background: #075E54; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+.wa-av { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.wa-head h4 { font-size: 0.95rem; font-weight: 500; color: #fff; }
+.wa-head p { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 0.1rem; }
+.wa-online { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; margin-right: 4px; }
+.wa-body { padding: 1.2rem; background: #ECE5DD; min-height: 110px; }
+.wa-bubble { background: #fff; border-radius: 0 8px 8px 8px; padding: 0.7rem 0.9rem; font-size: 0.84rem; color: #111; line-height: 1.5; max-width: 88%; box-shadow: 0 1px 2px rgba(0,0,0,0.07); margin-bottom: 0.5rem; }
+.wa-time { font-size: 0.62rem; color: #aaa; text-align: right; margin-top: 0.2rem; }
+.wa-foot { padding: 0.9rem 1.1rem; background: var(--white); border-top: 1px solid var(--cream-dark); }
+.wa-row { display: flex; gap: 0.6rem; align-items: flex-end; }
+.wa-input { flex: 1; border: 1px solid var(--cream-dark); border-radius: 20px; padding: 0.58rem 1rem; font-size: 0.84rem; font-family: 'DM Sans', sans-serif; resize: none; outline: none; color: var(--charcoal); background: var(--cream); min-height: 38px; max-height: 100px; }
+.wa-input:focus { border-color: #25D366; }
+.wa-send { width: 38px; height: 38px; background: #25D366; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+.wa-send:hover { background: #1aab53; }
+.wa-disc { font-size: 0.66rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
+.wa-fab {
+  width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px rgba(37,211,102,0.38); transition: all 0.3s; position: relative;
+}
+.wa-fab:hover { transform: scale(1.08); box-shadow: 0 10px 35px rgba(37,211,102,0.5); }
+.wa-pulse { position: absolute; inset: -4px; border-radius: 50%; background: rgba(37,211,102,0.28); animation: pulse-ring 2.5s ease-out infinite; }
+@keyframes pulse-ring { 0%{transform:scale(0.95);opacity:0.7} 70%{transform:scale(1.3);opacity:0} 100%{transform:scale(1.3);opacity:0} }
+.wa-notif { position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; background: var(--saffron); border-radius: 50%; border: 2px solid #fff; font-size: 0.6rem; font-weight: 700; color: #fff; display: flex; align-items: center; justify-content: center; }
+/* INSTAGRAM LINK */
+.footer-insta-link { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.86rem; font-weight: 400; color: rgba(255,253,248,0.6); text-decoration: none; border: 1px solid rgba(255,253,248,0.12); padding: 0.55rem 1rem; border-radius: 2px; transition: all 0.2s; }
+.footer-insta-link:hover { color: var(--saffron-glow); border-color: rgba(212,117,10,0.4); }
+
+/* FOOTER */
+footer { background: var(--charcoal); padding: 4rem 6rem 2rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,253,248,0.07); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+.footer-logo span { color: var(--saffron); }
+.footer-desc { font-size: 0.86rem; font-weight: 300; color: rgba(255,253,248,0.4); line-height: 1.75; max-width: 250px; margin-bottom: 1.5rem; }
+.footer-social { display: flex; gap: 0.8rem; }
+.footer-social-link { width: 36px; height: 36px; border-radius: 2px; border: 1px solid rgba(255,253,248,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; color: rgba(255,253,248,0.5); }
+.footer-social-link:hover { border-color: var(--saffron); color: var(--saffron); }
+.footer-col h4 { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,253,248,0.35); margin-bottom: 1.2rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.65rem; }
+.footer-col ul li a, .footer-col ul li span { font-size: 0.86rem; font-weight: 300; color: rgba(255,253,248,0.55); text-decoration: none; transition: color 0.2s; display: block; }
+.footer-col ul li a:hover { color: var(--saffron); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; }
+.footer-copy { font-size: 0.76rem; color: rgba(255,253,248,0.22); }
+.footer-copy a { color: var(--saffron); text-decoration: none; opacity: 0.7; }
+.footer-veg { display: flex; align-items: center; gap: 0.5rem; font-size: 0.76rem; color: rgba(255,253,248,0.28); }
+.veg-box { width: 18px; height: 18px; border: 1.5px solid var(--green); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.veg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 1rem 2rem; }
+  nav.scrolled { padding: 0.8rem 2rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 9rem 3rem 4rem; }
+  .hero-right { display: none; }
+  .why-us, .services, .about, .reviews, .location { padding: 5rem 3rem; }
+  .menu-section { padding: 5rem 3rem; }
+  footer { padding: 3rem 3rem 2rem; }
+  .why-header { grid-template-columns: 1fr; gap: 2rem; }
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual { max-width: 400px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .location-inner { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .why-us, .services, .about, .reviews, .location { padding: 4rem 1.5rem; }
+  .menu-section { padding: 4rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; }
+  .hero-left { padding: 8rem 1.5rem 3rem; }
+  .hero-stats { gap: 1.5rem; }
+  .pillars { grid-template-columns: 1fr; }
+  .reviews-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .wa-box { width: 290px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Appna<span>Tiffin</span></a>
+  <ul class="nav-links">
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#location">Visit Us</a></li>
+    <li><a href="tel:+18254541693" class="nav-cta">📞 Order Now</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileNav">
+  <button class="mobile-close" onclick="toggleNav()">✕</button>
+  <a href="#why-us" onclick="toggleNav()">Why Us</a>
+  <a href="#services" onclick="toggleNav()">Services</a>
+  <a href="#menu" onclick="toggleNav()">Menu</a>
+  <a href="#about" onclick="toggleNav()">About</a>
+  <a href="#location" onclick="toggleNav()">Visit Us</a>
+  <a href="tel:+18254541693" onclick="toggleNav();" style="color:var(--saffron)">📞 Order Now</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">✦ Pure Vegetarian · Calgary's Finest Tiffin</div>
+    <h1 class="hero-title">Cooked with<br>love, served<br><em>fresh daily.</em></h1>
+    <p class="hero-subtitle">Real home cooking. Hand-ground spices. No frozen shortcuts. Appna Tiffin brings the warmth of a desi kitchen straight to your table — every single day.</p>
+    <div class="hero-actions">
+      <a href="tel:+18254541693" class="btn-primary">📞 Order Now</a>
+      <a href="#services" class="btn-secondary">Explore Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">4.8★</div><div class="hero-stat-label">Google Rating</div></div>
+      <div><div class="hero-stat-num">7</div><div class="hero-stat-label">Days a Week</div></div>
+      <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Vegetarian</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Pure Vegetarian</span>
+    <span class="marquee-item">Fresh Daily</span>
+    <span class="marquee-item">Hand-Ground Masalas</span>
+    <span class="marquee-item">Home Delivery</span>
+    <span class="marquee-item">Truck Driver Meals</span>
+    <span class="marquee-item">Event Catering</span>
+    <span class="marquee-item">Open 7 Days</span>
+    <span class="marquee-item">Calgary's Best Tiffin</span>
+    <span class="marquee-item">Pure Vegetarian</span>
+    <span class="marquee-item">Fresh Daily</span>
+    <span class="marquee-item">Hand-Ground Masalas</span>
+    <span class="marquee-item">Home Delivery</span>
+    <span class="marquee-item">Truck Driver Meals</span>
+    <span class="marquee-item">Event Catering</span>
+    <span class="marquee-item">Open 7 Days</span>
+    <span class="marquee-item">Calgary's Best Tiffin</span>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-us" id="why-us">
+  <div class="why-us-inner">
+    <div class="why-header reveal">
+      <div class="why-header-text">
+        <div class="section-label">Why Appna Tiffin</div>
+        <h2 class="section-title">Not your average<br><em>tiffin service.</em></h2>
+        <p>We do things the old-fashioned way — because shortcuts have no place in a kitchen that truly cares. Every decision we make starts with one question: would we serve this to our own family?</p>
+      </div>
+      <blockquote class="why-pull-quote">"We grind our own masalas every week. You taste the difference in the very first bite."</blockquote>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><span class="pillar-number">01</span><span class="pillar-icon">🌿</span><h3>100% Pure Vegetarian</h3><p>Our kitchen is completely vegetarian — no meat, no cross-contamination, ever. A sacred commitment to those who need to know exactly what's in their food.</p></div>
+      <div class="pillar reveal"><span class="pillar-number">02</span><span class="pillar-icon">🌅</span><h3>Cooked Fresh Every Day</h3><p>Nothing is frozen. Nothing is reheated from yesterday. Every roti, every sabzi, every dal is prepared the morning of — the way it was always meant to be.</p></div>
+      <div class="pillar reveal"><span class="pillar-number">03</span><span class="pillar-icon">🌶️</span><h3>Masalas Ground In-House</h3><p>We grind our own spice blends fresh every week right here in our kitchen. No store-bought packets. That depth of flavour you can't quite place? That's why.</p></div>
+      <div class="pillar reveal"><span class="pillar-number">04</span><span class="pillar-icon">🚚</span><h3>Monthly Tiffin Delivery</h3><p>Subscribe to a monthly plan and get fresh home-cooked meals delivered to your door. No cooking stress, no meal planning — just good food, consistently, on time.</p></div>
+      <div class="pillar reveal"><span class="pillar-number">05</span><span class="pillar-icon">🚛</span><h3>Meals for Truck Drivers</h3><p>Long haul, big appetite. Our truck driver tiffin is generous, filling, and built for the road — because hardworking people deserve a proper home-cooked meal.</p></div>
+      <div class="pillar reveal"><span class="pillar-number">06</span><span class="pillar-icon">🎉</span><h3>Small Event Catering</h3><p>Birthdays, poojas, family gatherings — we bring authentic desi flavours to your celebration. Fresh, abundant, and completely stress-free for you and your guests.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">From <em>daily tiffin</em> to<br>your special occasions.</h2>
+      <p class="services-subtitle">Whether you need a quick daily meal, a monthly subscription, hearty food for the road, or catering for a gathering — we have you covered.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><span class="service-card-icon">🍱</span><h3>Daily & Weekly Tiffin</h3><p>Walk in or order ahead. Small, medium, or large tiffin with fresh roti, dal, sabzi, and dahi. For busy individuals and families who refuse to compromise on a home-cooked meal.</p><span class="service-tag">✦ Available Daily</span></div>
+      <div class="service-card reveal"><span class="service-card-icon">📦</span><h3>Monthly Subscription</h3><p>Lock in your meals for the month and get consistent, fresh home cooking delivered to your door. Choose your tiffin size and let us handle the rest — no planning, no stress.</p><span class="service-tag">✦ Home Delivery</span></div>
+      <div class="service-card reveal"><span class="service-card-icon">🛣️</span><h3>Truck Driver Specials</h3><p>A hearty, filling meal with roti, dal, sabzi, salad, and something sweet — built for long days and big appetites. Because good food shouldn't stop at the highway.</p><span class="service-tag">✦ Generous Portions</span></div>
+      <div class="service-card reveal"><span class="service-card-icon">🪔</span><h3>Event & Party Catering</h3><p>From intimate poojas to birthday parties and family gatherings — we bring the full desi experience to your event. Authentic flavours, generous portions, zero hassle for you.</p><span class="service-tag">✦ Custom Orders Welcome</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label">Our Menu</div>
+      <h2 class="section-title">Fresh, wholesome &amp; <em>made with love.</em></h2>
+      <p class="menu-intro">Pure vegetarian. Open 7 days a week. Everything made fresh daily in our kitchen.</p>
+    </div>
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" onclick="showMenuTab('tiffin',this)">🍱 Tiffin Plans</button>
+      <button class="menu-tab" onclick="showMenuTab('thali',this)">🍽️ Thalis</button>
+      <button class="menu-tab" onclick="showMenuTab('roti',this)">🫓 Rotis &amp; Paranthas</button>
+      <button class="menu-tab" onclick="showMenuTab('sabzi',this)">🥘 Sabzi / Dal</button>
+      <button class="menu-tab" onclick="showMenuTab('snacks',this)">🥙 Snacks</button>
+      <button class="menu-tab" onclick="showMenuTab('drinks',this)">🥛 Cold Drinks</button>
+      <button class="menu-tab" onclick="showMenuTab('chai',this)">☕ Chai</button>
+    </div>
+
+    <!-- TIFFIN PLANS -->
+    <div class="menu-panel active" id="menu-tiffin">
+      <h3 class="menu-category-title">Tiffin Plans</h3>
+      <p class="menu-category-desc">Daily, weekly, and monthly tiffin subscriptions. Rice &amp; sweet dish included once a week on monthly plans. Served Sunday–Friday.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Small (8oz)</h4><p>6 Roti, One Dal, One Sabzi. Consistent home flavour every day.</p><span class="menu-price">$240 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Medium (12oz)</h4><p>6–8 Roti, One Dal, One Sabzi. A satisfying mid-size tiffin for a full day of energy.</p><span class="menu-price">$260 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">📅</span><h4>Monthly — Large (16oz)</h4><p>8–10 Roti, One Dal, One Sabzi. Generous portions, no compromises.</p><span class="menu-price">$300 – $320 / month</span><br><span class="menu-card-tag">Monthly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Small (8oz)</h4><p>4 Roti, One Dal, One Sabzi. Fresh home food every day of the week.</p><span class="menu-price">$70 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Medium (12oz)</h4><p>6 Roti, One Dal, One Sabzi. Great for working professionals.</p><span class="menu-price">$80 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">📆</span><h4>Weekly — Large (16oz)</h4><p>8 Roti, One Dal, One Sabzi. Generous and filling for bigger appetites.</p><span class="menu-price">$90 / week</span><br><span class="menu-card-tag">Weekly Plan</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Small</h4><p>4 Roti, One Sabzi, One Dal and Dahi. Walk in or call ahead.</p><span class="menu-price">$12.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Medium</h4><p>6 Roti, One Sabzi, One Dal and Dahi. The most popular size.</p><span class="menu-price">$17.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🗓️</span><h4>Daily — Large</h4><p>8 Roti, One Sabzi, One Dal and Dahi. For a big appetite and an even bigger day.</p><span class="menu-price">$23.99</span><br><span class="menu-card-tag">Daily Tiffin</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Full</h4><p>20 Roti, 24oz Dal, One Sabzi, Salad and Sweet. Built for the road.</p><span class="menu-price">$40.00</span><br><span class="menu-card-tag">Truck Special</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🚛</span><h4>Truck Meal — Half</h4><p>10 Roti, 16oz Dal, One Sabzi, Salad and Sweet. A real home-cooked highway meal.</p><span class="menu-price">$25.00</span><br><span class="menu-card-tag">Truck Special</span></div>
+      </div>
+      <div class="menu-note"><p><strong>All prices include GST.</strong> Call us at <strong>+1 (825) 454-1693</strong> to book your tiffin plan.</p></div>
+    </div>
+
+    <!-- THALIS -->
+    <div class="menu-panel" id="menu-thali">
+      <h3 class="menu-category-title">Thalis</h3>
+      <p class="menu-category-desc">Complete, balanced thali plates — the full desi experience in one plate.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">🍛</span><h4>Punjabi Thali</h4><p>2 Roti or Rice, One Dal, One Sabzi, Salad, Dahi and Sweet Dish. A complete Punjabi meal on one plate.</p><span class="menu-card-tag">Signature</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Desi Saag Thali</h4><p>2 Makki Roti, Saag, Sabzi, Salad, Dahi and Sweet Dish. Classic Punjabi winter comfort — Saag &amp; Makki di Roti done right.</p><span class="menu-card-tag">Seasonal Favourite</span></div>
+      </div>
+      <div class="menu-note"><p><strong>Ask us what's fresh today</strong> — our thali sabzis and dals rotate daily for maximum variety.</p></div>
+    </div>
+
+    <!-- ROTIS & PARANTHAS -->
+    <div class="menu-panel" id="menu-roti">
+      <h3 class="menu-category-title">Rotis &amp; Paranthas</h3>
+      <p class="menu-category-desc">Hand-rolled fresh every day. No shortcuts, no frozen dough. Just the real thing.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Tawa Roti</h4><p>Classic whole wheat roti, soft and fresh off the tawa. The foundation of every great tiffin.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌽</span><h4>Makki di Roti</h4><p>Traditional cornmeal flatbread — pairs perfectly with Saag. A Punjabi classic.</p><span class="menu-card-tag">Seasonal</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Plain Parantha</h4><p>Flaky, layered whole wheat parantha made fresh. Simple, buttery, and satisfying.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥔</span><h4>Aloo Parantha</h4><p>Stuffed with spiced mashed potato — a breakfast favourite, available all day.</p><span class="menu-card-tag">Popular</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥦</span><h4>Gobhi Parantha</h4><p>Grated cauliflower mixed with spices, stuffed fresh into every parantha.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🧅</span><h4>Onion Parantha</h4><p>Finely chopped onion with spices, rolled into a fragrant parantha. Light and flavourful.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌱</span><h4>Mooli Parantha</h4><p>Grated radish with a blend of spices — a winter staple that's deeply satisfying.</p><span class="menu-card-tag">Seasonal</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Parantha</h4><p>Crumbled cottage cheese spiced and stuffed fresh. Rich, filling, and full of flavour.</p><span class="menu-card-tag">Premium</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌀</span><h4>Mix Parantha</h4><p>A blend of seasonal vegetables and spices — a different combination, every time.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥞</span><h4>Besan Chilla</h4><p>Savoury chickpea flour crepe, spiced and served fresh. Protein-packed and delicious.</p><span class="menu-card-tag">Daily</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🫓</span><h4>Lacha Parantha</h4><p>Multi-layered, flaky parantha with a beautiful texture — a restaurant-style classic made at home.</p><span class="menu-card-tag">Special</span></div>
+      </div>
+    </div>
+
+    <!-- SABZI / DAL -->
+    <div class="menu-panel" id="menu-sabzi">
+      <h3 class="menu-category-title">Sabzi &amp; Dal</h3>
+      <p class="menu-category-desc">Order curries and dals by the ounce — available in 8, 12, 16, and 24oz portions.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">🍲</span><h4>Daily Sabzi / Dal</h4><p>Our rotating daily vegetable curry or dal — made fresh every morning with hand-ground spices.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Saag Sabzi / Dal</h4><p>Spinach-based curry made the traditional way. Rich, earthy, and deeply satisfying.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Sabzi / Dal</h4><p>Fresh cottage cheese in a flavourful masala — a crowd favourite for a reason.</p><span class="menu-card-tag">8 · 12 · 16 · 24 oz</span></div>
+      </div>
+      <div class="menu-note"><p>Call us to check <strong>what's cooking today</strong> — the sabzi and dal rotate daily for fresh variety.</p></div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="menu-panel" id="menu-snacks">
+      <h3 class="menu-category-title">Snacks &amp; Chaat</h3>
+      <p class="menu-category-desc">Classic Indian street food snacks — crispy, tangy, and made fresh in our kitchen.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">🧆</span><h4>Mix Pakoda</h4><p>Assorted vegetable fritters in a spiced gram flour batter. Perfect with chai.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🧀</span><h4>Paneer Pakoda</h4><p>Cottage cheese cubes dipped in spiced batter and fried golden. A crowd favourite.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🍞</span><h4>Bread Pakoda</h4><p>Bread stuffed with spiced potato, dipped in batter and fried. Street food at its finest.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌯</span><h4>Bread Roll</h4><p>Crispy bread rolled with a savoury potato filling. Quick, satisfying, and delicious.</p><span class="menu-card-tag">Snack</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥗</span><h4>Papdi Chaat</h4><p>Crispy wafers topped with yogurt, chutneys, and chaat masala. A tangy flavour explosion.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🫘</span><h4>Samosa Chana Chaat</h4><p>Flaky samosa with spiced chickpeas, chutneys, and yogurt. A complete street-food experience.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥔</span><h4>Tikki Chana Chaat</h4><p>Golden potato patties with chickpeas, chutneys, and dahi. Classic and comforting.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🫙</span><h4>Dahi Bhalla</h4><p>Lentil dumplings soaked in cold yogurt and finished with sweet and tangy chutneys.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥐</span><h4>Kachori Chaat</h4><p>Flaky stuffed pastry topped with the works — chaat masala, chutneys, and sev.</p><span class="menu-card-tag">Chaat</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🔺</span><h4>Samosa</h4><p>Crispy pastry filled with spiced potato and peas. The ultimate Indian snack — served fresh.</p><span class="menu-card-tag">Classic</span></div>
+      </div>
+    </div>
+
+    <!-- COLD DRINKS -->
+    <div class="menu-panel" id="menu-drinks">
+      <h3 class="menu-category-title">Cold Drinks</h3>
+      <p class="menu-category-desc">Refreshing homemade drinks and shakes — the perfect companion to your meal.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">🥛</span><h4>Sweet Lassi</h4><p>Thick, chilled yogurt drink sweetened to perfection. The classic desi cooler.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🧂</span><h4>Salted Lassi</h4><p>Cool and refreshing salted yogurt drink with a hint of roasted cumin. Great after a meal.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥭</span><h4>Mango Lassi</h4><p>Real mango blended into thick creamy yogurt. Tropical, sweet, and utterly refreshing.</p><span class="menu-card-tag">Popular</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Pudina (Mint) Lassi</h4><p>Minty fresh lassi — cooling and aromatic. Perfect for a warm Calgary afternoon.</p><span class="menu-card-tag">Lassi</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🍋</span><h4>Nimbu Pani</h4><p>Fresh lemon water with a touch of salt and sugar. Simple, clean, and perfectly refreshing.</p><span class="menu-card-tag">Refresher</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">☕</span><h4>Cold Coffee</h4><p>Chilled blended coffee — rich and creamy. A perfect pick-me-up any time of day.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🍫</span><h4>Chocolate Shake</h4><p>Rich, creamy chocolate milkshake. A crowd-pleaser for all ages.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🍓</span><h4>Strawberry Shake</h4><p>Thick strawberry milkshake made with fresh flavours. Sweet and satisfying.</p><span class="menu-card-tag">Shake</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🥭</span><h4>Mango Shake</h4><p>Thick, creamy mango milkshake — rich with the taste of real mangoes.</p><span class="menu-card-tag">Shake</span></div>
+      </div>
+    </div>
+
+    <!-- CHAI -->
+    <div class="menu-panel" id="menu-chai">
+      <h3 class="menu-category-title">Appna Swaad Chaa Da ☕</h3>
+      <p class="menu-category-desc">Real chai — brewed the proper way. No tea bags, no shortcuts.</p>
+      <div class="menu-grid">
+        <div class="menu-card reveal"><span class="menu-card-icon">☕</span><h4>Appni Special Chai</h4><p>Our signature house chai — hand-crafted with fresh ginger, cardamom, and whole spices. The real deal.</p><span class="menu-card-tag">House Special</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🍬</span><h4>Gur Chai</h4><p>Traditional chai sweetened with jaggery (gur) instead of sugar. Earthy, deep, and comforting.</p><span class="menu-card-tag">Traditional</span></div>
+        <div class="menu-card reveal"><span class="menu-card-icon">🌿</span><h4>Sugar Free Chai</h4><p>All the warmth and spice of our signature chai, made without any sugar. Light and aromatic.</p><span class="menu-card-tag">Healthy</span></div>
+      </div>
+    </div>
+
+    <div class="menu-cta-row reveal">
+      <a href="tel:+18254541693" class="btn-primary">📞 Call to Order</a>
+      <a href="#" class="btn-secondary" style="color:var(--brown);border-color:rgba(60,34,16,0.22);" onclick="toggleWA();return false;">💬 Ask on WhatsApp</a>
+      <a href="https://www.instagram.com/appna_tiffin/" class="btn-insta" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> See What's Cooking Today @appna_tiffin</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-img-main" style="background:none;padding:0;"><img src="Front Door.png" alt="Appna Tiffin Front Door" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"><div class="about-img-overlay"><h4>"Cooked like you'd make it at home."</h4><p>The only standard we hold ourselves to.</p></div></div>
+      <div class="about-badge">Pure<br>Veg<br>Kitchen</div>
+    </div>
+    <div class="about-content reveal">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Started with a belief —<br><em>food should feel<br>like home.</em></h2>
+      <p>Appna Tiffin was born out of a deep desire to bring the comfort of real home-cooked meals to Calgary's South Asian community. We knew what was missing: food that didn't just fill you up, but actually tasted like someone made it with care.</p>
+      <p>Everything is made the way your mother or grandmother would make it. Spices ground fresh each week in our kitchen. Rotis rolled and cooked to order. No batch cooking from three days ago. No frozen shortcuts. Just honest, wholesome, vegetarian food — the way it should always be.</p>
+      <p>We're open seven days a week because good food doesn't take weekends off.</p>
+      <div class="about-values">
+        <div class="about-value"><span class="about-value-icon">🌿</span><div><h5>Fully Vegetarian</h5><p>Every dish, every day. No exceptions ever.</p></div></div>
+        <div class="about-value"><span class="about-value-icon">🌅</span><div><h5>Made Fresh Daily</h5><p>Zero frozen. Prepared every morning.</p></div></div>
+        <div class="about-value"><span class="about-value-icon">🌶️</span><div><h5>House-Ground Spices</h5><p>Fresh masalas blended in our kitchen weekly.</p></div></div>
+        <div class="about-value"><span class="about-value-icon">❤️</span><div><h5>Made with Love</h5><p>The ingredient that makes all the difference.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header reveal">
+      <div><div class="section-label">What People Say</div><h2 class="section-title">Calgary loves<br><em>Appna Tiffin.</em></h2></div>
+      <a class="rating-badge" href="https://www.google.com/search?sca_esv=1c26a0c770028f06&rlz=1C5CHFA_enCA1144CA1144&sxsrf=ANbL-n6lVjuIyD-TNOiVu_nsqZLayzH8Ug:1777170414026&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWYn4Gwxg5zTEw9y44Ydki5pCiJfaKHsIi1fYSpsmC0OtTl4Muaw0LP3rsqX5GDcjXEuCr-voApYW_qtz_afaAzbHiMz&q=Appna+Tiffin+Reviews&sa=X&ved=2ahUKEwib0-7Zu4qUAxWiHTQIHayUAQsQ0bkNegQINRAH&biw=1440&bih=812&dpr=2" target="_blank" rel="noopener" title="See our Google Reviews"><div class="rating-num">4.8</div><div><div class="rating-stars">★★★★★</div><div class="rating-count">92+ Google Reviews ↗</div></div></a>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">The food genuinely tastes like my mom made it. Fresh roti, perfectly spiced dal — I don't know how they do it this consistently every single day.</p><div class="review-author"><div class="review-avatar">P</div><div><div class="review-name">Priya S.</div><div class="review-stars">★★★★★</div></div></div></div>
+      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">Best tiffin in Calgary, no question. You can taste that the spices are real — not like every other place. Worth every penny for the monthly plan.</p><div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Rajinder K.</div><div class="review-stars">★★★★★</div></div></div></div>
+      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">I drive long haul and Appna Tiffin is my go-to stop in Calgary. The truck driver meal is huge, filling, and tastes like a proper home meal. Nothing comes close.</p><div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">Harjeet M.</div><div class="review-stars">★★★★★</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-inner">
+    <div class="reveal">
+      <div class="location-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.8871093557!2d-113.97836282322966!3d51.09366797170573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53717831090c4b21%3A0xc5e53d9cd0b09cdc!2s4661%2054%20Ave%20NE%20%23106%2C%20Calgary%2C%20AB%20T3J%203J8!5e0!3m2!1sen!2sca!4v1714000000000!5m2!1sen!2sca" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Appna Tiffin Calgary"></iframe>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=4661+54+Ave+NE+%23106+Calgary+AB+T3J+3J8" target="_blank" rel="noopener" class="btn-take-me-there">📍 Take Me There →</a>
+    </div>
+    <div class="location-details reveal">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Come visit<br><em>our kitchen.</em></h2>
+      <div class="loc-item"><div class="loc-icon">📍</div><div><div class="loc-label">Address</div><div class="loc-value"><a href="https://maps.google.com/?q=4661+54+Ave+NE+%23106+Calgary+AB" target="_blank">4661 54 Ave NE #106<br>Calgary, AB T3J 3J8</a></div></div></div>
+      <div class="loc-item"><div class="loc-icon">📞</div><div><div class="loc-label">Phone / WhatsApp</div><div class="loc-value"><a href="tel:+18254541693">+1 (825) 454-1693</a></div></div></div>
+      <div class="loc-item"><div class="loc-icon">🕐</div><div><div class="loc-label">Hours</div><div class="loc-value">Monday – Sunday<br><span style="color:var(--green);font-weight:500">9:00 AM – 11:00 PM</span><br><span style="font-size:0.82rem;color:var(--muted)">Open 7 days a week</span></div></div></div>
+      <div class="loc-item"><div class="loc-icon">🚗</div><div><div class="loc-label">Parking</div><div class="loc-value">Free parking available on site</div></div></div>
+      <div style="margin-top:2rem"><a href="tel:+18254541693" class="btn-primary">📞 Order Now</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Appna<span>Tiffin</span></div>
+        <p class="footer-desc">Pure vegetarian home cooking in Calgary. Made fresh daily, with hand-ground spices and a whole lot of love.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/appna_tiffin/" class="footer-insta-link" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Follow us on Instagram
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#why-us">Why Appna Tiffin</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#location">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><span>Daily & Weekly Tiffin</span></li>
+          <li><span>Monthly Subscription</span></li>
+          <li><span>Home Delivery</span></li>
+          <li><span>Truck Driver Meals</span></li>
+          <li><span>Event Catering</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Appna Tiffin. All rights reserved. Built by <a href="https://thebfsai.com" target="_blank" rel="noopener">BFS Corporations</a>.</p>
+      <div class="footer-veg"><div class="veg-box"><div class="veg-dot"></div></div> Pure Vegetarian Kitchen</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP WIDGET -->
+<div class="wa-widget">
+  <div class="wa-box" id="waBox">
+    <div class="wa-head">
+      <div class="wa-av">🍛</div>
+      <div><h4>Appna Tiffin</h4><p><span class="wa-online"></span>Typically replies instantly</p></div>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">👋 Hi! Welcome to Appna Tiffin!<div class="wa-time">Today</div></div>
+      <div class="wa-bubble">Type your message below and we'll open WhatsApp so you can send it directly to us 🙏<div class="wa-time">Today</div></div>
+    </div>
+    <div class="wa-foot">
+      <div class="wa-row">
+        <textarea class="wa-input" id="waMsg" placeholder="Type your message..." rows="1" onkeydown="waKey(event)" oninput="waResize(this)"></textarea>
+        <button class="wa-send" onclick="waSend()" title="Send on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <p class="wa-disc">Your message opens in WhatsApp</p>
+    </div>
+  </div>
+  <button class="wa-fab" onclick="toggleWA()" aria-label="Chat on WhatsApp">
+    <div class="wa-pulse"></div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="wa-notif">1</span>
+  </button>
+</div>
+
+<script>
+// MENU TABS
+function showMenuTab(id, btn) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('menu-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// NAV
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// MOBILE NAV
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// WHATSAPP WIDGET
+const WA_NUM = '18254541693';
+let waOpen = false;
+
+function toggleWA() {
+  waOpen = !waOpen;
+  document.getElementById('waBox').classList.toggle('open', waOpen);
+  document.querySelector('.wa-notif').style.display = 'none';
+  if (waOpen) setTimeout(() => document.getElementById('waMsg').focus(), 300);
+}
+
+function openWA(e) {
+  if (e) e.preventDefault();
+  waOpen = true;
+  document.getElementById('waBox').classList.add('open');
+  document.querySelector('.wa-notif').style.display = 'none';
+  setTimeout(() => document.getElementById('waMsg').focus(), 300);
+}
+
+function waSend() {
+  const msg = document.getElementById('waMsg').value.trim();
+  const text = msg || "Hi Appna Tiffin! I'd like to place an order.";
+  window.open('https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(text), '_blank');
+  document.getElementById('waMsg').value = '';
+  document.getElementById('waMsg').style.height = 'auto';
+}
+
+function waKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); waSend(); }
+}
+
+function waResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+// SCROLL REVEAL
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 70);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// SMOOTH ANCHORS
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const t = document.querySelector(href);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
