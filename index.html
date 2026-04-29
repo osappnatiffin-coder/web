@@ -833,15 +833,176 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
   <div class="reviews-inner">
     <div class="reviews-header reveal">
       <div><div class="section-label">What People Say</div><h2 class="section-title">Calgary loves<br><em>Appna Tiffin.</em></h2></div>
-      <a class="rating-badge" href="https://www.google.com/search?sca_esv=1c26a0c770028f06&rlz=1C5CHFA_enCA1144CA1144&sxsrf=ANbL-n6lVjuIyD-TNOiVu_nsqZLayzH8Ug:1777170414026&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWYn4Gwxg5zTEw9y44Ydki5pCiJfaKHsIi1fYSpsmC0OtTl4Muaw0LP3rsqX5GDcjXEuCr-voApYW_qtz_afaAzbHiMz&q=Appna+Tiffin+Reviews&sa=X&ved=2ahUKEwib0-7Zu4qUAxWiHTQIHayUAQsQ0bkNegQINRAH&biw=1440&bih=812&dpr=2" target="_blank" rel="noopener" title="See our Google Reviews"><div class="rating-num">4.8</div><div><div class="rating-stars">★★★★★</div><div class="rating-count">92+ Google Reviews ↗</div></div></a>
+      <a class="rating-badge" href="https://www.google.com/search?q=Appna+Tiffin+Reviews+Calgary" target="_blank" rel="noopener" title="See our Google Reviews">
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <div>
+            <div style="display:flex;align-items:center;gap:0.4rem;"><span class="rating-num" style="font-size:2rem;">4.8</span><span class="rating-stars">★★★★★</span></div>
+            <div class="rating-count">92+ Google Reviews ↗</div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">The food genuinely tastes like my mom made it. Fresh roti, perfectly spiced dal — I don't know how they do it this consistently every single day.</p><div class="review-author"><div class="review-avatar">P</div><div><div class="review-name">Priya S.</div><div class="review-stars">★★★★★</div></div></div></div>
-      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">Best tiffin in Calgary, no question. You can taste that the spices are real — not like every other place. Worth every penny for the monthly plan.</p><div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Rajinder K.</div><div class="review-stars">★★★★★</div></div></div></div>
-      <div class="review-card reveal"><span class="review-q">"</span><p class="review-text">I drive long haul and Appna Tiffin is my go-to stop in Calgary. The truck driver meal is huge, filling, and tastes like a proper home meal. Nothing comes close.</p><div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">Harjeet M.</div><div class="review-stars">★★★★★</div></div></div></div>
+
+    <!-- Review Carousel -->
+    <div class="review-carousel-wrap">
+      <div class="review-carousel" id="reviewCarousel">
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">The food genuinely tastes like my mom made it. Fresh roti, perfectly spiced dal — I don't know how they do it this consistently every single day.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#1E3A0F">P</div>
+            <div><div class="review-name">Priya S.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">Best tiffin in Calgary, no question. You can taste that the spices are real — not like every other place. Worth every penny for the monthly plan.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#3C2210">R</div>
+            <div><div class="review-name">Rajinder K.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">I drive long haul and Appna Tiffin is my go-to stop in Calgary. The truck driver meal is huge, filling, and tastes like a proper home meal. Nothing comes close.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#D4750A">H</div>
+            <div><div class="review-name">Harjeet M.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">We ordered for a family gathering — 20 people. Everything was on time, hot, and absolutely delicious. The chole and puri was the highlight. Will order again for sure.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#2D5A16">S</div>
+            <div><div class="review-name">Simran D.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">As a student far from home, this tiffin service has been a lifesaver. Affordable, filling, and tastes like ghar ka khana. The methi roti is unreal.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#8B6B4A">A</div>
+            <div><div class="review-name">Arjun V.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-q">"</span>
+          <p class="review-text">Ordered the kheer and gulab jamun for dessert — absolutely divine. My whole family was impressed. Appna Tiffin is the real deal for Punjabi home cooking in Calgary.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#1A120A">M</div>
+            <div><div class="review-name">Manpreet G.</div><div class="review-stars">★★★★★</div></div>
+          </div>
+          <div class="review-google-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" aria-label="Previous review">←</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)" aria-label="Next review">→</button>
+      </div>
+
+      <!-- Leave a review CTA -->
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="https://www.google.com/search?q=Appna+Tiffin+Reviews+Calgary" target="_blank" rel="noopener" class="review-cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          See all 92+ reviews on Google ↗
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+/* REVIEW CAROUSEL */
+.review-carousel-wrap { position: relative; overflow: hidden; }
+.review-carousel { display: flex; gap: 1.5rem; transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform; }
+.review-card { background: var(--cream); padding: 2rem; border-radius: 4px; border: 1px solid var(--parchment); min-width: calc(33.333% - 1rem); flex-shrink: 0; position: relative; display: flex; flex-direction: column; gap: 0; transition: transform 0.3s, box-shadow 0.3s; }
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(212,117,10,0.12); }
+.review-google-badge { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--muted); margin-top: auto; padding-top: 1rem; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.carousel-btn { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--parchment); background: var(--white); color: var(--brown); font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+.carousel-btn:hover { background: var(--saffron); color: var(--white); border-color: var(--saffron); }
+.carousel-dots { display: flex; gap: 6px; align-items: center; }
+.carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--parchment); cursor: pointer; transition: all 0.2s; border: none; padding: 0; }
+.carousel-dot.active { background: var(--saffron); width: 20px; border-radius: 4px; }
+.review-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.85rem 2rem; border: 1.5px solid var(--parchment); border-radius: 4px; font-size: 0.88rem; color: var(--brown); text-decoration: none; background: var(--white); transition: all 0.25s; font-weight: 500; }
+.review-cta-btn:hover { border-color: var(--saffron); color: var(--saffron); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,117,10,0.12); }
+@media (max-width: 768px) {
+  .review-card { min-width: calc(100% - 0rem); }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .review-card { min-width: calc(50% - 0.75rem); }
+}
+</style>
+
+<script>
+(function() {
+  const carousel = document.getElementById('reviewCarousel');
+  const dotsContainer = document.getElementById('carouselDots');
+  if (!carousel) return;
+
+  const cards = carousel.querySelectorAll('.review-card');
+  let current = 0;
+  let autoTimer;
+
+  function getVisible() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function totalSlides() {
+    return Math.ceil(cards.length / getVisible());
+  }
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides(); i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function goTo(index) {
+    const total = totalSlides();
+    current = (index + total) % total;
+    const cardWidth = cards[0].offsetWidth + 24;
+    carousel.style.transform = `translateX(-${current * getVisible() * cardWidth}px)`;
+    buildDots();
+    resetAuto();
+  }
+
+  window.moveCarousel = function(dir) { goTo(current + dir); };
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  buildDots();
+  resetAuto();
+  window.addEventListener('resize', () => { goTo(0); });
+})();
+</script>
 
 <!-- LOCATION -->
 <section class="location" id="location">
