@@ -410,8 +410,9 @@ nav.scrolled { padding: 0.8rem 4rem; box-shadow: 0 4px 40px rgba(60,34,16,0.07);
 .reviews { background: var(--white); padding: 7rem 6rem; position: relative; z-index: 1; }
 .reviews-inner { max-width: 1200px; margin: 0 auto; }
 .reviews-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
-.rating-badge { display: flex; align-items: center; gap: 1rem; background: var(--cream); padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; border: 1.5px solid transparent; transition: all 0.25s; }
-.rating-badge:hover { border-color: var(--saffron); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,117,10,0.15); }
+.rating-badge { display: flex; align-items: center; gap: 1rem; background: var(--white); padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; border: 2px solid var(--saffron); transition: all 0.25s; box-shadow: 0 4px 16px rgba(212,117,10,0.15); position: relative; margin-bottom: 14px; }
+.rating-badge::after { content: '★ Leave a Review'; position: absolute; bottom: -13px; left: 50%; transform: translateX(-50%); background: var(--saffron); color: var(--white); font-size: 0.65rem; font-weight: 600; padding: 2px 10px; border-radius: 20px; white-space: nowrap; letter-spacing: 0.04em; }
+.rating-badge:hover { background: var(--cream); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(212,117,10,0.25); }
 .rating-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: var(--brown); line-height: 1; }
 .rating-stars { color: var(--saffron); font-size: 1rem; letter-spacing: 2px; }
 .rating-count { font-size: 0.78rem; color: var(--muted); }
@@ -941,8 +942,8 @@ footer { background: var(--charcoal); padding: 4rem 6rem 2rem; position: relativ
 .carousel-dots { display: flex; gap: 6px; align-items: center; }
 .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--parchment); cursor: pointer; transition: all 0.2s; border: none; padding: 0; }
 .carousel-dot.active { background: var(--saffron); width: 20px; border-radius: 4px; }
-.review-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.85rem 2rem; border: 1.5px solid var(--parchment); border-radius: 4px; font-size: 0.88rem; color: var(--brown); text-decoration: none; background: var(--white); transition: all 0.25s; font-weight: 500; }
-.review-cta-btn:hover { border-color: var(--saffron); color: var(--saffron); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,117,10,0.12); }
+.review-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 1rem 2.5rem; border: none; border-radius: 4px; font-size: 0.92rem; color: var(--white); text-decoration: none; background: var(--saffron); transition: all 0.25s; font-weight: 500; box-shadow: 0 6px 20px rgba(212,117,10,0.35); letter-spacing: 0.02em; }
+.review-cta-btn:hover { background: var(--saffron-light); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(212,117,10,0.45); }
 @media (max-width: 768px) {
   .review-card { min-width: calc(100% - 0rem); }
 }
